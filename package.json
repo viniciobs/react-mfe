@@ -1,0 +1,23 @@
+{
+  "name": "workshope-mfe-react",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "",
+    "start": "concurrently \"npm run start:home\" \"npm run start:list-movies\" \"npm run start:view-movie\" \"npm run start:host\"",
+    "install:host": "cd host && npm install",
+    "start:host": "cd host && npm start",
+    "build:host": "cd host && npm run build",
+    "install:home": "cd remotes && cd home && npm install",
+    "start:home": "cd remotes && cd home && npm start",
+    "build:home": "cd remotes && cd home && npm run build",
+    "install:list-movies": "cd remotes && cd list-movies && npm install",
+    "start:list-movies": "cd remotes && cd list-movies && npm start",
+    "build:list-movies": "cd remotes && cd list-movies && npm run build",
+    "install:view-movie": "cd remotes && cd view-movie && npm install",
+    "start:view-movie": "cd remotes && cd view-movie && npm start",
+    "build:view-movie": "cd remotes && cd view-movie && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
