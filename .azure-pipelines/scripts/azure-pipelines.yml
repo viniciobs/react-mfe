@@ -6,7 +6,7 @@ pool:
 
 variables:
   storageAccountName: $(AZURE_STORAGE_ACCOUNT_NAME)
-  subscriptionName: $(AZURE_SUBSCRIPTION_NAME)
+  subscriptionName: $(AZURE_SERVICE_CONNECTION)
   buildFolder: build
 
 steps:
