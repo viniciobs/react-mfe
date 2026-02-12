@@ -6,6 +6,7 @@ pool:
 
 variables:
   storageAccountName: $(AZURE_STORAGE_ACCOUNT_NAME)
+  subscriptionName: $(AZURE_SUBSCRIPTION_NAME)
   buildFolder: build
 
 steps:
@@ -27,7 +28,7 @@ steps:
   - task: AzureCLI@2
     displayName: 'Upload files to Azure Blob Storage'
     inputs:
-      azureSubscription: $(AZURE_SUBSCRIPTION_NAME)
+      azureSubscription: $(subscriptionName)
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
