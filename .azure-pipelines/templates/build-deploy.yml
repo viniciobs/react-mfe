@@ -1,0 +1,72 @@
+parameters:
+- name: mfeName
+  type: string
+- name: mfePath
+  type: string
+- name: deployPath
+  type: string
+- name: storageAccountName
+  type: string
+- name: buildFolder
+  type: string
+  default: 'build'
+
+steps:
+  - checkout: self
+
+  - task: NodeTool@0
+    displayName: 'Install Node.js'
+    inputs:
+      versionSpec: '23.x'
+
+  - script: |
+      corepack enable 
+      corepack prepare pnpm@latest --activate
+      pnpm --version
+    displayName: 'Enable pnpm'
+
+  - script: |
+      echo "Installing dependencies for $(parameters.mfeName)..."
+      cd $(parameters.mfePath)
+      pnpm install
+    displayName: 'Install dependencies'
+
+  - script: |
+      echo "Building $(parameters.mfeName)..."
+      cd $(parameters.mfePath)
+      pnpm run build
+    displayName: 'Build MFE'
+  
+  - task: AzureCLI@2
+    displayName: 'Upload files to Azure Blob Storage'
+    inputs:
+      azureSubscription: sc-react-sandbox
+      scriptType: ps
+      scriptLocation: inlineScript
+      inlineScript: |
+        az storage blob upload-batch `
+          --account-name ${{ parameters.storageAccountName }} `
+          --destination '$web${{ parameters.deployPath }}' 
+          --source ${{ parameters.mfePath }}/${{ parameters.buildFolder }} `
+          --overwrite true `
+          --content-cache-control "public, max-age=31536000, immutable" `
+          --pattern "*js" `
+          --content-type "application/javascript"
+
+        az storage blob upload-batch `
+          --account-name ${{ parameters.storageAccountName }} `
+          --destination '$web${{ parameters.deployPath }}' `
+          --source ${{ parameters.mfePath }}/${{ parameters.buildFolder }} `
+          --overwrite true `
+          --content-cache-control "no-cache" `
+          --pattern "*.html" `
+          --content-type "text/html"
+
+        az storage blob upload-batch `
+          --account-name ${{ parameters.storageAccountName }} `
+          --destination '$web${{ parameters.deployPath }}' `
+          --source ${{ parameters.mfePath }}/${{ parameters.buildFolder }} `
+          --overwrite true `
+          --content-cache-control "public, max-age=31536000, immutable" `
+          --pattern "*.{css,png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot}" `
+          --exclude-pattern "*.{js,html}"

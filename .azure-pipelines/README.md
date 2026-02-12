@@ -24,11 +24,10 @@ You must create a Service Connection in Azure DevOps that allows the pipeline to
 Create it in Azure DevOps > Project Settings > Service connections > New Service connection > Azure Resource Manager.
 
 ### Pipeline Variables
-The pipeline expects the following variables to exist:
+The pipeline expects the following variable to exist:
 |Variable Name|Description|
 |-------------|-----------|
 |`AZURE_STORAGE_ACCOUNT_NAME`|Name of the Azure Storage Account|
-|`AZURE_SERVICE_CONNECTION`|Name of the Azure DevOps Service Connection.|
 
 # Summary
 
