@@ -74,12 +74,12 @@ stages:
 
   - stage: BuildAndDeploy
     displayName: 'Build and Deploy Changed MFEs'
-    dependsOn: detectChanges
+    dependsOn: DetectChanges
     variables:
-      hostChanged: $[ dependencies.DetectChanges.outputs['detectChanges.hostChanged'] ]
-      homeChanged: $[ dependencies.DetectChanges.outputs['detectChanges.homeChanged'] ]
-      listmoviesChanged: $[ dependencies.DetectChanges.outputs['detectChanges.listmoviesChanged'] ]
-      viewmovieChanged: $[ dependencies.DetectChanges.outputs['detectChanges.viewmovieChanged'] ]
+      hostChanged: $[ stageDependencies.DetectChanges.DetectChanges.outputs['detectChanges.hostChanged'] ]
+      homeChanged: $[ stageDependencies.DetectChanges.DetectChanges.outputs['detectChanges.homeChanged'] ]
+      listmoviesChanged: $[ stageDependencies.DetectChanges.DetectChanges.outputs['detectChanges.listmoviesChanged'] ]
+      viewmovieChanged: $[ stageDependencies.DetectChanges.DetectChanges.outputs['detectChanges.viewmovieChanged'] ]
 
     jobs:
       - job: BuildDeployHost
