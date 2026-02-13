@@ -27,14 +27,12 @@ steps:
 
   - script: |
       echo "Installing dependencies for $(parameters.mfeName)..."
-      cd $(parameters.mfePath)
-      pnpm install
+      pnpm install:$(parameters.mfePath)
     displayName: 'Install dependencies'
 
   - script: |
       echo "Building $(parameters.mfeName)..."
-      cd $(parameters.mfePath)
-      pnpm run build
+      pnpm run build:cd $(parameters.mfePath)
     displayName: 'Build MFE'
   
   - task: AzureCLI@2
