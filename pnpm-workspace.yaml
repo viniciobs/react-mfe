@@ -1,0 +1,5 @@
+packages:
+  - host
+  - remotes/home
+  - remotes/list-movies
+  - remotes/view-movie
