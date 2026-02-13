@@ -51,11 +51,11 @@ stages:
                 $HOME_CHANGED = $true
               }
 
-              if ($changedFiles -match '^remotes/listmovies/') {
+              if ($changedFiles -match '^remotes/list-movies/') {
                 $LISTMOVIES_CHANGED = $true
               }
 
-              if ($changedFiles -match '^remotes/viewmovie/') {
+              if ($changedFiles -match '^remotes/view-movie/') {
                 $VIEWMOVIE_CHANGED = $true
               }
 
