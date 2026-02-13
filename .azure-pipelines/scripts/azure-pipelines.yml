@@ -110,9 +110,9 @@ stages:
         steps:
           - template: ../templates/build-deploy.yml
             parameters:
-              mfeName: 'listmovies'
-              mfePath: 'remotes/listmovies'
-              deployPath: 'remotes/listmovies'
+              mfeName: 'list-movies'
+              mfePath: 'remotes/list-movies'
+              deployPath: 'remotes/list-movies'
               storageAccountName: $(storageAccountName)
 
       - job: BuildDeployViewMovie
@@ -121,7 +121,7 @@ stages:
         steps:
           - template: ../templates/build-deploy.yml
             parameters:
-              mfeName: 'viewmovie'
-              mfePath: 'remotes/viewmovie'
-              deployPath: 'remotes/viewmovie'
+              mfeName: 'view-movie'
+              mfePath: 'remotes/view-movie'
+              deployPath: 'remotes/view-movie'
               storageAccountName: $(storageAccountName)
