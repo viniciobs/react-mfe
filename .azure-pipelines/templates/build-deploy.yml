@@ -19,20 +19,20 @@ steps:
     inputs:
       versionSpec: '23.x'
 
-  - script: |
+  - powershell: |
       corepack enable 
       corepack prepare pnpm@latest --activate
       pnpm --version
     displayName: 'Enable pnpm'
 
-  - script: |
-      echo "Installing dependencies for $(parameters.mfeName)..."
-      pnpm install:$(parameters.mfePath)
+  - powershell: |
+      Write-Host "Installing dependencies for $(parameters.mfeName)..."
+      pnpm install:$(parameters.mfeName)
     displayName: 'Install dependencies'
 
-  - script: |
-      echo "Building $(parameters.mfeName)..."
-      pnpm run build:cd $(parameters.mfePath)
+  - powershell: |
+      Write-Host "Building $(parameters.mfeName)..."
+      pnpm run build:$(parameters.mfeName)
     displayName: 'Build MFE'
   
   - task: AzureCLI@2
