@@ -26,13 +26,13 @@ steps:
     displayName: 'Enable pnpm'
 
   - powershell: |
-      Write-Host "Installing dependencies for $(parameters.mfeName)..."
-      pnpm install:$(parameters.mfeName)
+      Write-Host "Installing dependencies for ${{parameters.mfeName}}..."
+      pnpm install:${{parameters.mfeName}}
     displayName: 'Install dependencies'
 
   - powershell: |
-      Write-Host "Building $(parameters.mfeName)..."
-      pnpm run build:$(parameters.mfeName)
+      Write-Host "Building ${{parameters.mfeName}}..."
+      pnpm run build:${{parameters.mfeName}}
     displayName: 'Build MFE'
   
   - task: AzureCLI@2
