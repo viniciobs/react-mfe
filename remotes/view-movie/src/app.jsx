@@ -1,6 +1,6 @@
 import React from "react";
 const _ = React; 
 
-const App = () => (<div>There's a movie being displayed here...</div>);
+const App = () => (<h1>There's a movie being displayed here...</h1>);
 
 export default App;
