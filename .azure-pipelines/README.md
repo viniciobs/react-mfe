@@ -29,6 +29,29 @@ The pipeline expects the following variable to exist:
 |-------------|-----------|
 |`AZURE_STORAGE_ACCOUNT_NAME`|Name of the Azure Storage Account|
 
+### Agent Pool
+
+This pipeline is configured to run on a self-hosted agent installed on a Windows machine.
+
+Instead of using Microsoft-hosted agents, this project uses a local agent pool (for example: `LocalPool`) that points to a Windows machine where the Azure DevOps agent is installed.
+
+#### Requirements on the agent machine
+
+The Windows machine running the agent must have:
+
+- Node.js installed
+- pnpm (or Corepack enabled)
+- Azure CLI installed
+- Internet access to download dependencies
+- Access to Azure DevOps
+
+You can verify the tools with:
+```cmd
+node --version
+pnpm --version
+az --version
+```
+
 # Summary
 
 To use this pipeline, you need:
