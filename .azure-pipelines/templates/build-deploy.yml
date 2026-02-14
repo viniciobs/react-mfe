@@ -44,7 +44,7 @@ steps:
       inlineScript: |
         az storage blob upload-batch `
           --account-name ${{ parameters.storageAccountName }} `
-          --destination '$web${{ parameters.deployPath }}' 
+          --destination '$web${{ parameters.deployPath }}' `
           --source ${{ parameters.mfePath }}/${{ parameters.buildFolder }} `
           --overwrite true `
           --content-cache-control "public, max-age=31536000, immutable" `
