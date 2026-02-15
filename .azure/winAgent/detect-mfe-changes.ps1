@@ -28,7 +28,12 @@ foreach ($mfe in $mfeMap.PSObject.Properties) {
     $mfeName = $mfe.Name
     $path = $mfe.Value.TrimEnd("/")
 
-    if ($changedFiles | Where-Object { $_ -match "^$path/" }) {
+    # Escape for regex
+    $escapedPath = [regex]::Escape($path)
+
+    if ($changedFiles | Where-Object { $_ -match "^$escapedPath/" }) {
+        Write-Host "Detected changes in $mfeName"
+
         $matrix[$mfeName] = @{
             mfeName    = $mfeName
             mfePath    = $path
@@ -42,5 +47,6 @@ if ($matrix.Count -eq 0) {
     exit 0
 }
 
-$json = $matrix | ConvertTo-Json -Compress
+$json = $matrix | ConvertTo-Json -Depth 10 -Compress
+Write-Host "Matrix JSON: $json"
 Write-Host "##vso[task.setvariable variable=mfeMatrix;isOutput=true]$json"
