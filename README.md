@@ -9,6 +9,11 @@ pnpm install
 pnpm start
 ```
 
+OR with docker
+```bash
+docker compose up --build
+```
+
 **Routes:** 
 
 - Home: http://localhost:3000/

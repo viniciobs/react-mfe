@@ -10,7 +10,7 @@ const _packageName = "container";
 const _port = 3000;
 
 // This must be set to "/" for host, and "auto" for remotes
-const _publicPath = "/host/";
+const _publicPath = "/";
 
 module.exports = (env, argv) => {
 	return {

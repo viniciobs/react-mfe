@@ -10,7 +10,7 @@ const _packageName = "remote_home";
 const _port = 3001;
 
 // This must be set to "/" for host, and "auto" for remotes
-const _publicPath = "/remotes/home/";
+const _publicPath = process.env.NODE_ENV === "production" ? "/remotes/home/" : "auto";
 
 module.exports = (env, argv) => {
 	return {

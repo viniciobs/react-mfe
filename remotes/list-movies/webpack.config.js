@@ -10,7 +10,7 @@ const _packageName = "remote_listmovies";
 const _port = 3002;
 
 // This must be set to "/" for host, and "auto" for remotes
-const _publicPath = "/remotes/list-movies/";
+const _publicPath = process.env.NODE_ENV === "production" ? "/remotes/list-movies/" : "auto";
 
 module.exports = (env, argv) => {
 	return {
