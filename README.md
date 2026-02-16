@@ -14,8 +14,7 @@ OR with docker
 docker compose up --build
 ```
 
-**Routes:** 
+# Setups
 
-- Home: http://localhost:3000/
-- List Movies: http://localhost:3000/movies
-- View Movie: http://localhost:3000/movies/1
+- [Azure Agent Setup](./.azure/winAgent/README.md)
+- [Terraform Configuration](./.terraform/README.md)
