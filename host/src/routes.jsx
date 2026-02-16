@@ -3,11 +3,13 @@ import { Route, Routes } from "react-router";
 import { useParams } from "react-router-dom";
 import importRemote from "./dynamic-remotes";
 
+const webpack = require('webpack');
+
 // Remote URLs configuration
 const getRemoteUrl = (remoteName) => {
-  console.log(process.env.NODE_ENV);
+  console.log("olha p tu ver " + webpack.process.env.NODE_ENV);
   // Check if we're in production mode
-  const isProduction = process.env.NODE_ENV === 'production';
+  const isProduction = webpack.process.env.NODE_ENV === 'production';
 
   if (isProduction) {
     // Use environment variables or fallback URLs for production
