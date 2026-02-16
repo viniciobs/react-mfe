@@ -5,6 +5,7 @@ import importRemote from "./dynamic-remotes";
 
 // Remote URLs configuration
 const getRemoteUrl = (remoteName) => {
+  console.log(process.env.NODE_ENV);
   // Check if we're in production mode
   const isProduction = process.env.NODE_ENV === 'production';
 
