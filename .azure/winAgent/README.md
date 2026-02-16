@@ -10,27 +10,14 @@ This pipeline builds a React application and uploads the generated files to an A
 ## Prerequisites
 Before running this pipeline, the following Azure and Azure DevOps resources **must be configured**.
 
-### Azure Storage Account
-You must have an Azure Storage Account configured with **Static Website** enabled.
-In Azure Portal:
-1. Go to your Storage Account
-2. Go to Data management > Static Website
-3. Enable it
-
-This creates a container named `$web` where the React build files will be uploaded to.
+### Azure Pipelines
+If your project still doesn't have the pipeline configured, go ahead and configure it linking to the pipeline files in this project.
 
 ### Azure DevOps Service Connection
 You must create a Service Connection in Azure DevOps that allows the pipeline ton authenticate to Azure.
 Create it in Azure DevOps > Project Settings > Service connections > New Service connection > Azure Resource Manager.
 
-### Pipeline Variables
-The pipeline expects the following variable to exist:
-|Variable Name|Description|
-|-------------|-----------|
-|`AZURE_STORAGE_ACCOUNT_NAME`|Name of the Azure Storage Account|
-
 ### Agent Pool
-
 This pipeline is configured to run on a self-hosted agent installed on a Windows machine.
 
 Instead of using Microsoft-hosted agents, this project uses a local agent pool (for example: `LocalPool`) that points to a Windows machine where the Azure DevOps agent is installed.
@@ -51,6 +38,9 @@ node --version
 pnpm --version
 az --version
 ```
+
+### Resource Group and Service Principal
+Please, refer to this document: [Resource Group and Service Principal setup documentation](../../.terraform/README.md)
 
 # Summary
 
