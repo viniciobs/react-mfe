@@ -10,7 +10,7 @@ const _packageName = "remote_listmovies";
 const _port = 3002;
 
 // This must be set to "/" for host, and "auto" for remotes
-const _publicPath = _packageName === "container" ? "/" : "auto";
+const _publicPath = "/remotes/list-movies/";
 
 module.exports = (env, argv) => {
 	return {

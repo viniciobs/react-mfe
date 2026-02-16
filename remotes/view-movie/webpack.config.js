@@ -10,7 +10,7 @@ const _packageName = "remote_viewmovie";
 const _port = 3003;
 
 // This must be set to "/" for host, and "auto" for remotes
-const _publicPath = _packageName === "container" ? "/" : "auto";
+const _publicPath = "/remotes/view-movie/";
 
 module.exports = (env, argv) => {
 	return {
