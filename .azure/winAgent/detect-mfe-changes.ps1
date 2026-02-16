@@ -3,7 +3,7 @@ param (
     [string]$SourcesDirectory
 )
 
-$configPath = Join-Path $SourcesDirectory ".azure\mfe.config.json"
+$configPath = Join-Path $SourcesDirectory "react-mfe/.azure\mfe.config.json"
 
 if (!(Test-Path $configPath)) {
     Write-Error "mfe.config.json not found at $configPath"
