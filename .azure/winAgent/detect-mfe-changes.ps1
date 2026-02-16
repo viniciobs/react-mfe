@@ -16,7 +16,15 @@ if ($BuildReason -eq "PullRequest") {
     $changedFiles = git diff --name-only origin/main...HEAD
 }
 else {
-    $changedFiles = git diff --name-only HEAD~1 HEAD
+    $commitCount = git rev-list --count HEAD
+
+    if ($commitCount -lt 2) {
+        Write-Host "Only one commit found. Treating all MFEs as changed."
+        $changedFiles = git ls-files
+    }
+    else {
+        $changedFiles = git diff --name-only HEAD~1 HEAD
+    }
 }
 
 Write-Host "Changed files:"
