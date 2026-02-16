@@ -22,6 +22,8 @@ This pipeline is configured to run on a self-hosted agent installed on a Windows
 
 Instead of using Microsoft-hosted agents, this project uses a local agent pool (for example: `LocalPool`) that points to a Windows machine where the Azure DevOps agent is installed.
 
+_Tip: Better run two or more self-hosted agents to be able to run parallel jobs._
+
 #### Requirements on the agent machine
 
 The Windows machine running the agent must have:
