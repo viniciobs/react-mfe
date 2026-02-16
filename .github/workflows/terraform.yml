@@ -1,7 +1,11 @@
 name: Terraform Deploy MFEs
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: .terraform
 
 jobs:
   terraform:
@@ -9,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      TF_VAR_client_id: ${{ secrets.AZURE_CLIENT_ID }}
-      TF_VAR_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-      TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-      TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       TF_VAR_resource_group_name: mfe-dev-rg
       TF_VAR_location: brazilsouth
       TF_VAR_storage_account_name: mfestoragedev123
@@ -20,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
