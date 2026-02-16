@@ -1,9 +1,9 @@
 // Remote URLs configuration for different environments
 const remoteUrls = {
   development: {
-    home: 'http://localhost:3001/remote.js',
-    listMovies: 'http://localhost:3002/remote.js',
-    viewMovie: 'http://localhost:3003/remote.js',
+    home: 'home@http://localhost:3001/remote.js',
+    listMovies: 'listMovies@http://localhost:3002/remote.js',
+    viewMovie: 'viewMovie@http://localhost:3003/remote.js',
   },
   production: {
     home: process.env.REMOTE_HOME_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/home/remote.js',

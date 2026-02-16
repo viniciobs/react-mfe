@@ -1,0 +1,20 @@
+services:
+  host:
+    build: ./host
+    ports:
+      - "3000:80"
+
+  home:
+    build: ./remotes/home
+    ports:
+      - "3001:80"
+
+  list-movies:
+    build: ./remotes/list-movies
+    ports:
+      - "3002:80"
+
+  view-movie:
+    build: ./remotes/view-movie
+    ports:
+      - "3003:80"
