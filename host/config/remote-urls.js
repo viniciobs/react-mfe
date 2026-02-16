@@ -6,15 +6,10 @@ const remoteUrls = {
     viewMovie: 'http://localhost:3003/remote.js',
   },
   production: {
-    home: process.env.REMOTE_HOME_URL || 'https://your-home-app.azurestaticapps.net/remote.js',
-    listMovies: process.env.REMOTE_LISTMOVIES_URL || 'https://your-list-movies-app.azurestaticapps.net/remote.js',
-    viewMovie: process.env.REMOTE_VIEWMOVIE_URL || 'https://your-view-movie-app.azurestaticapps.net/remote.js',
-  },
-  staging: {
-    home: process.env.REMOTE_HOME_URL || 'https://staging-home-app.azurestaticapps.net/remote.js',
-    listMovies: process.env.REMOTE_LISTMOVIES_URL || 'https://staging-list-movies-app.azurestaticapps.net/remote.js',
-    viewMovie: process.env.REMOTE_VIEWMOVIE_URL || 'https://staging-view-movie-app.azurestaticapps.net/remote.js',
-  },
+    home: process.env.REMOTE_HOME_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/home/remote.js',
+    listMovies: process.env.REMOTE_LISTMOVIES_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/list-movies/remote.js',
+    viewMovie: process.env.REMOTE_VIEWMOVIE_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/view-movie/remote.js',
+  }
 };
 
 const environment = process.env.NODE_ENV || 'development';

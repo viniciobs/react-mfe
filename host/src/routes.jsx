@@ -11,9 +11,9 @@ const getRemoteUrl = (remoteName) => {
   if (isProduction) {
     // Use environment variables or fallback URLs for production
     const remoteUrls = {
-      home: window.REMOTE_HOME_URL || process.env.REMOTE_HOME_URL || 'https://your-home-app.azurestaticapps.net/remote.js',
-      listMovies: window.REMOTE_LISTMOVIES_URL || process.env.REMOTE_LISTMOVIES_URL || 'https://your-list-movies-app.azurestaticapps.net/remote.js',
-      viewMovie: window.REMOTE_VIEWMOVIE_URL || process.env.REMOTE_VIEWMOVIE_URL || 'https://your-view-movie-app.azurestaticapps.net/remote.js',
+      home: window.REMOTE_HOME_URL || process.env.REMOTE_HOME_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/home/remote.js',
+      listMovies: window.REMOTE_LISTMOVIES_URL || process.env.REMOTE_LISTMOVIES_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/list-movies/remote.js',
+      viewMovie: window.REMOTE_VIEWMOVIE_URL || process.env.REMOTE_VIEWMOVIE_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/view-movie/remote.js',
     };
     return remoteUrls[remoteName];
   }
