@@ -13,6 +13,8 @@ const _port = 3001;
 const _publicPath = process.env.NODE_ENV === "production" ? "/remotes/home/" : "auto";
 
 module.exports = (env, argv) => {
+
+	console.log("oia o que tem dentro do process.env.NODE_ENV", process.env.NODE_ENV);
 	return {
 		entry: "./src/index.js",
 		output: { publicPath: _publicPath },
