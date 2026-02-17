@@ -3,20 +3,19 @@ import { Route, Routes } from "react-router";
 import { useParams } from "react-router-dom";
 import importRemote from "./dynamic-remotes";
 
-const webpack = require('webpack');
 
 // Remote URLs configuration
 const getRemoteUrl = (remoteName) => {
-  console.log("olha p tu ver " + webpack.process.env.NODE_ENV);
+  console.log("olha p tu ver " + process.env.NODE_ENV);
   // Check if we're in production mode
-  const isProduction = webpack.process.env.NODE_ENV === 'production';
+  const isProduction = process.env.NODE_ENV === 'production';
 
   if (isProduction) {
     // Use environment variables or fallback URLs for production
     const remoteUrls = {
-      home: window.REMOTE_HOME_URL || process.env.REMOTE_HOME_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/home/remote.js',
-      listMovies: window.REMOTE_LISTMOVIES_URL || process.env.REMOTE_LISTMOVIES_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/list-movies/remote.js',
-      viewMovie: window.REMOTE_VIEWMOVIE_URL || process.env.REMOTE_VIEWMOVIE_URL || 'https://mfestaticsite.z15.web.core.windows.net/remotes/view-movie/remote.js',
+      home: 'https://mfestaticsite.z15.web.core.windows.net/remotes/home/remote.js',
+      listMovies: 'https://mfestaticsite.z15.web.core.windows.net/remotes/list-movies/remote.js',
+      viewMovie: 'https://mfestaticsite.z15.web.core.windows.net/remotes/view-movie/remote.js',
     };
     return remoteUrls[remoteName];
   }
